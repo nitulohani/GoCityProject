@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'Tradefact'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "junit:junit:4.12"
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-6'
+    compile group: 'javax.xml', name: 'jaxb-api', version: '2.1'
+    compile group: 'io.cucumber', name: 'cucumber-gherkin', version: '6.8.0'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '6.8.0'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    compile group: 'io.cucumber', name: 'cucumber-java', version: '6.8.0'
+// https://mvnrepository.com/artifact/org.testng/testng
+    testCompile group: 'org.testng', name: 'testng', version: '7.3.0'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    compile group: 'io.cucumber', name: 'cucumber-java', version: '2.0.0'
+    // https://mvnrepository.com/artifact/io.cucumber/datatable-dependencies
+    compile group: 'io.cucumber', name: 'datatable-dependencies', version: '1.0.0'
+    testCompile 'io.rest-assured:rest-assured:3.0.2'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.10.0'
+
+
+}
+test {
+    dependsOn assemble, compileTestJava
+    systemProperties = System.properties
+    testLogging.showStandardStreams = true
+    useJUnitPlatform()
+    useTestNG()
+}
