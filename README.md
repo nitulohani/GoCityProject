@@ -1,5 +1,5 @@
 # Introduction 
-This is  a Test Project to develop Automation Framework for GoCity Website
+This is  a Test Project to develop Automation Framework for GoCity Website.
 I have Added 2 features for GoCity Website that is AllInclusiveFeature and SignUp Feature.
 I have only added few working scenarios for these 2 pages.
 
