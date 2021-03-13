@@ -1,5 +1,5 @@
 Feature:Search for Ebay Website
-  Scenario:Search and verify results
+ Scenario:Search & Verify results
     Given I am a non-registered customer
     And I navigate to www.ebay.co.uk
     When I search for an item

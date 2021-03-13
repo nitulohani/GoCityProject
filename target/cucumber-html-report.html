@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.0"},"runtime":{"name":"OpenJDK 64-Bit Server VM","version":"11.0.8+10-LTS"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1615640395","nanos":451270500}}},{"source":{"uri":"classpath:feature/Search.feature","data":"Feature:Search for Ebay Website\r\n Scenario:Search \u0026 Verify results\r\n    Given I am a non-registered customer\r\n    And I navigate to www.ebay.co.uk\r\n    When I search for an item\r\n    Then I get a list of matching results\r\n    And the resulting items cards show: postage price, No of bids, price or show BuyItNow tag\r\n    Then I can sort the results by Lowest Price\r\n    And the results are listed in the page in the correct order\r\n    Then I can sort the results by Highest Price\r\n    And the results are listed in the page in the correct order\r\n    Then I can filter the results by \u0027Buy it now\u0027\r\n    And all the results shown in the page have the \u0027Buy it now\u0027 tag\r\n\r\n  Scenario:Search per category\r\n    Given I am a non-registered customer\r\n    And I navigate to www.ebay.co.uk\r\n    When I enter a search term and select a specific Category\r\n    Then I get a list of matching results\r\n    And I can verify that the results shown as per the the selected category\r\n\r\n  Scenario:Search and navigate through results pages\r\n    Given I am a non-registered customer\r\n    And I navigate to www.ebay.co.uk\r\n    When I search for an item\r\n    Then I get a list of matching results\r\n    And the results show more than one page\r\n    Then the user can navigate through the pages to continue looking at the items\r\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"classpath:feature/Search.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Search for Ebay Website","children":[{"scenario":{"location":{"line":2,"column":2},"keyword":"Scenario","name":"Search \u0026 Verify results","steps":[{"location":{"line":3,"column":5},"keyword":"Given ","text":"I am a non-registered customer","id":"e552b33e-0e02-424b-a678-4fbbabb4c586"},{"location":{"line":4,"column":5},"keyword":"And ","text":"I navigate to www.ebay.co.uk","id":"cdb3c977-0130-466d-9a48-a6fece28879d"},{"location":{"line":5,"column":5},"keyword":"When ","text":"I search for an item","id":"c42623c0-439a-48dc-8554-00e316e1f307"},{"location":{"line":6,"column":5},"keyword":"Then ","text":"I get a list of matching results","id":"fbf9cada-3046-4827-a666-dd4e3f663a0f"},{"location":{"line":7,"column":5},"keyword":"And ","text":"the resulting items cards show: postage price, No of bids, price or show BuyItNow tag","id":"709ecf52-dd21-4b68-8d73-b1a2bc99853b"},{"location":{"line":8,"column":5},"keyword":"Then ","text":"I can sort the results by Lowest Price","id":"092a0032-5b91-4712-98cf-ad597796a1c0"},{"location":{"line":9,"column":5},"keyword":"And ","text":"the results are listed in the page in the correct order","id":"d0c2c519-d3cc-46c0-a75e-e2e869f5ee99"},{"location":{"line":10,"column":5},"keyword":"Then ","text":"I can sort the results by Highest Price","id":"e00abd67-ed82-4b02-834d-be63057b870f"},{"location":{"line":11,"column":5},"keyword":"And ","text":"the results are listed in the page in the correct order","id":"97fb1501-bc87-43fa-a4e7-d7637605f6e4"},{"location":{"line":12,"column":5},"keyword":"Then ","text":"I can filter the results by \u0027Buy it now\u0027","id":"226eda2e-cdf7-4de9-9352-6d47cb304ddf"},{"location":{"line":13,"column":5},"keyword":"And ","text":"all the results shown in the page have the \u0027Buy it now\u0027 tag","id":"543a6989-663f-4c48-8995-299739278911"}],"id":"746373b3-2097-467e-b3e6-1c7c5a3d7223"}},{"scenario":{"location":{"line":15,"column":3},"keyword":"Scenario","name":"Search per category","steps":[{"location":{"line":16,"column":5},"keyword":"Given ","text":"I am a non-registered customer","id":"16ebc871-21d6-4c81-9b47-936b8d26f2cc"},{"location":{"line":17,"column":5},"keyword":"And ","text":"I navigate to www.ebay.co.uk","id":"7603906a-17bd-451d-8175-72c6ebb62f55"},{"location":{"line":18,"column":5},"keyword":"When ","text":"I enter a search term and select a specific Category","id":"8b56f397-45a9-40d4-b933-abe08de48764"},{"location":{"line":19,"column":5},"keyword":"Then ","text":"I get a list of matching results","id":"26dbfae4-b588-47fa-b927-ec2e06b912ac"},{"location":{"line":20,"column":5},"keyword":"And ","text":"I can verify that the results shown as per the the selected category","id":"4bc884ab-b399-4ac4-93ec-a9212886540a"}],"id":"1668131e-7ab0-4d04-80c3-5494a976675f"}},{"scenario":{"location":{"line":22,"column":3},"keyword":"Scenario","name":"Search and navigate through results pages","steps":[{"location":{"line":23,"column":5},"keyword":"Given ","text":"I am a non-registered customer","id":"6f1d1557-8d9c-4d38-818c-860e2740304a"},{"location":{"line":24,"column":5},"keyword":"And ","text":"I navigate to www.ebay.co.uk","id":"b38d43a3-3b9e-4849-a04a-a58c1680a2cc"},{"location":{"line":25,"column":5},"keyword":"When ","text":"I search for an item","id":"e397e816-4d44-407d-b988-c60e70791549"},{"location":{"line":26,"column":5},"keyword":"Then ","text":"I get a list of matching results","id":"b4e8cd92-654a-4a17-961e-694e22b479ea"},{"location":{"line":27,"column":5},"keyword":"And ","text":"the results show more than one page","id":"895b8f51-d20a-465d-b54a-184050cc8958"},{"location":{"line":28,"column":5},"keyword":"Then ","text":"the user can navigate through the pages to continue looking at the items","id":"fbf966f0-95df-4143-8c5d-d15193825099"}],"id":"69bd8c43-67c4-4e65-973f-b1b910ef4df5"}}]}}},{"pickle":{"id":"b2730846-f60d-465c-b5cc-bbb52c5d4ee8","uri":"classpath:feature/Search.feature","name":"Search \u0026 Verify results","language":"en","steps":[{"text":"I am a non-registered customer","id":"dc89e781-18ff-48df-8b06-59f472716d3e","astNodeIds":["e552b33e-0e02-424b-a678-4fbbabb4c586"]},{"text":"I navigate to www.ebay.co.uk","id":"e3ce2e7c-1f21-4b77-9b77-db699076aadc","astNodeIds":["cdb3c977-0130-466d-9a48-a6fece28879d"]},{"text":"I search for an item","id":"1d39e5ba-7f73-4124-bbb6-41dc14b53aa7","astNodeIds":["c42623c0-439a-48dc-8554-00e316e1f307"]},{"text":"I get a list of matching results","id":"4d71ac3e-02f2-4246-a4b4-65336767ca9e","astNodeIds":["fbf9cada-3046-4827-a666-dd4e3f663a0f"]},{"text":"the resulting items cards show: postage price, No of bids, price or show BuyItNow tag","id":"0a50e777-fafa-472b-ab42-11325549d468","astNodeIds":["709ecf52-dd21-4b68-8d73-b1a2bc99853b"]},{"text":"I can sort the results by Lowest Price","id":"d78ec33c-86e1-46fa-9e13-27fc3e56a565","astNodeIds":["092a0032-5b91-4712-98cf-ad597796a1c0"]},{"text":"the results are listed in the page in the correct order","id":"2fc5f73a-c491-442d-86c8-f932c98cda8b","astNodeIds":["d0c2c519-d3cc-46c0-a75e-e2e869f5ee99"]},{"text":"I can sort the results by Highest Price","id":"2e1f7d41-5e3e-4dca-94f8-42dc12d33b4a","astNodeIds":["e00abd67-ed82-4b02-834d-be63057b870f"]},{"text":"the results are listed in the page in the correct order","id":"0ba06381-57cd-4700-b9dd-05164f724b1c","astNodeIds":["97fb1501-bc87-43fa-a4e7-d7637605f6e4"]},{"text":"I can filter the results by \u0027Buy it now\u0027","id":"b0abe3b6-ef93-46d5-94b9-8d4427dd7b67","astNodeIds":["226eda2e-cdf7-4de9-9352-6d47cb304ddf"]},{"text":"all the results shown in the page have the \u0027Buy it now\u0027 tag","id":"dc36ac1a-8676-4c0f-8493-4ff0e1f8bd03","astNodeIds":["543a6989-663f-4c48-8995-299739278911"]}],"astNodeIds":["746373b3-2097-467e-b3e6-1c7c5a3d7223"]}},{"pickle":{"id":"177ec46c-c1c3-4221-8f30-687bca911e4f","uri":"classpath:feature/Search.feature","name":"Search per category","language":"en","steps":[{"text":"I am a non-registered customer","id":"c3d032fc-46de-4ef9-ae0b-153e989e25b0","astNodeIds":["16ebc871-21d6-4c81-9b47-936b8d26f2cc"]},{"text":"I navigate to www.ebay.co.uk","id":"df95e760-b24f-4984-b766-cc83986f6eea","astNodeIds":["7603906a-17bd-451d-8175-72c6ebb62f55"]},{"text":"I enter a search term and select a specific Category","id":"e665de13-9c44-471b-882c-d460b736b284","astNodeIds":["8b56f397-45a9-40d4-b933-abe08de48764"]},{"text":"I get a list of matching results","id":"43fc7d6c-641c-46d5-b096-04926de51561","astNodeIds":["26dbfae4-b588-47fa-b927-ec2e06b912ac"]},{"text":"I can verify that the results shown as per the the selected category","id":"042a1122-47dd-42f1-83af-2b0af7bbf60e","astNodeIds":["4bc884ab-b399-4ac4-93ec-a9212886540a"]}],"astNodeIds":["1668131e-7ab0-4d04-80c3-5494a976675f"]}},{"pickle":{"id":"aea7731e-1116-4963-8e67-f438177d558a","uri":"classpath:feature/Search.feature","name":"Search and navigate through results pages","language":"en","steps":[{"text":"I am a non-registered customer","id":"5bbce673-8148-4487-b640-47e4ae49624d","astNodeIds":["6f1d1557-8d9c-4d38-818c-860e2740304a"]},{"text":"I navigate to www.ebay.co.uk","id":"c6927e7f-5bc5-43ab-82e7-7567b092ca4b","astNodeIds":["b38d43a3-3b9e-4849-a04a-a58c1680a2cc"]},{"text":"I search for an item","id":"3a90b3f8-587d-48a9-8c35-910dbaf61468","astNodeIds":["e397e816-4d44-407d-b988-c60e70791549"]},{"text":"I get a list of matching results","id":"1f42b2df-ab96-4695-a891-6fc6ecde3d5d","astNodeIds":["b4e8cd92-654a-4a17-961e-694e22b479ea"]},{"text":"the results show more than one page","id":"46490aa4-4bb9-4c1b-8e0f-7b51ff140310","astNodeIds":["895b8f51-d20a-465d-b54a-184050cc8958"]},{"text":"the user can navigate through the pages to continue looking at the items","id":"eb9c229a-4219-4961-be7a-090866782ee4","astNodeIds":["fbf966f0-95df-4143-8c5d-d15193825099"]}],"astNodeIds":["69bd8c43-67c4-4e65-973f-b1b910ef4df5"]}},{"testCase":{"id":"2932ee85-ce36-4bba-aec1-321ef37ad160","pickleId":"b2730846-f60d-465c-b5cc-bbb52c5d4ee8","testSteps":[{"id":"6509fb29-6d68-450d-af36-04dfb4b8c8e1","hookId":"7e9ec154-4e6e-4a5f-a5a2-904b5818c0bf"},{"id":"5e132393-71b0-4b87-a499-c522e6db9418","pickleStepId":"dc89e781-18ff-48df-8b06-59f472716d3e","stepDefinitionIds":["f0a189e9-315d-4808-88a3-a95d91ba40ca"],"stepMatchArgumentsLists":[{}]},{"id":"8c88f2b5-3398-4acb-a526-0b0a3778ab57","pickleStepId":"e3ce2e7c-1f21-4b77-9b77-db699076aadc","stepDefinitionIds":["3a5261ba-63ec-4eb6-aa5f-33f682d23659"],"stepMatchArgumentsLists":[{}]},{"id":"f6853306-71a4-4673-b318-aeba33ad07ba","pickleStepId":"1d39e5ba-7f73-4124-bbb6-41dc14b53aa7","stepDefinitionIds":["28a606fe-18a2-46e0-a213-823a658ca6bd"],"stepMatchArgumentsLists":[{}]},{"id":"2d576a40-1bb2-497d-8529-ef77da165ed2","pickleStepId":"4d71ac3e-02f2-4246-a4b4-65336767ca9e","stepDefinitionIds":["a151b441-50b8-4d7b-b691-683fa27981a5"],"stepMatchArgumentsLists":[{}]},{"id":"697278a3-7c97-438e-b9b6-04e631aef701","pickleStepId":"0a50e777-fafa-472b-ab42-11325549d468","stepDefinitionIds":["7ecaa2b6-89b2-4027-b742-1f2fd8ee6877"],"stepMatchArgumentsLists":[{}]},{"id":"7ff5a850-b54e-4012-af7a-ea2b437ad6f4","pickleStepId":"d78ec33c-86e1-46fa-9e13-27fc3e56a565","stepDefinitionIds":["dee8d359-d792-4c69-b1f0-a88fe50ab7c7"],"stepMatchArgumentsLists":[{}]},{"id":"8da0d1cc-47ee-4db6-8c20-f5adbcab1433","pickleStepId":"2fc5f73a-c491-442d-86c8-f932c98cda8b","stepDefinitionIds":["d462d505-2e82-47ea-9217-b1ff35b627fa"],"stepMatchArgumentsLists":[{}]},{"id":"ff826154-9d1c-48fa-b617-cc978becd216","pickleStepId":"2e1f7d41-5e3e-4dca-94f8-42dc12d33b4a","stepDefinitionIds":["30d1826b-28eb-4cdc-ad0e-fed47b586622"],"stepMatchArgumentsLists":[{}]},{"id":"a84da31e-1468-4ae5-ad84-10a2cf66f642","pickleStepId":"0ba06381-57cd-4700-b9dd-05164f724b1c","stepDefinitionIds":["d462d505-2e82-47ea-9217-b1ff35b627fa"],"stepMatchArgumentsLists":[{}]},{"id":"8226ff25-b1d3-4f9d-a885-4444ca46c9d2","pickleStepId":"b0abe3b6-ef93-46d5-94b9-8d4427dd7b67","stepDefinitionIds":["56133fdf-9838-4daa-999d-3aa117ac2cd3"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":28,"value":"\u0027Buy it now\u0027","children":[{"children":[{}]},{"start":29,"value":"Buy it now","children":[{}]}]}}]}]},{"id":"4c8c2ed8-f4ef-4f1c-8fa8-be5d4ae0b778","pickleStepId":"dc36ac1a-8676-4c0f-8493-4ff0e1f8bd03","stepDefinitionIds":["04061263-fdba-41ca-8ab6-1ed5ce9168ca"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":43,"value":"\u0027Buy it now\u0027","children":[{"children":[{}]},{"start":44,"value":"Buy it now","children":[{}]}]}}]}]},{"id":"3e592857-7a1e-460f-a9ec-3d4e42b0f08f","hookId":"76324623-ac76-4b2d-97c5-187b79ec111e"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1615640395","nanos":760090500},"testCaseId":"2932ee85-ce36-4bba-aec1-321ef37ad160","id":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640395","nanos":765086600},"testStepId":"6509fb29-6d68-450d-af36-04dfb4b8c8e1","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"2","nanos":344427600}},"timestamp":{"seconds":"1615640398","nanos":109514200},"testStepId":"6509fb29-6d68-450d-af36-04dfb4b8c8e1","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640398","nanos":127501900},"testStepId":"5e132393-71b0-4b87-a499-c522e6db9418","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"3","nanos":314234200}},"timestamp":{"seconds":"1615640401","nanos":441736100},"testStepId":"5e132393-71b0-4b87-a499-c522e6db9418","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640401","nanos":442734400},"testStepId":"8c88f2b5-3398-4acb-a526-0b0a3778ab57","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":13992400}},"timestamp":{"seconds":"1615640401","nanos":456726800},"testStepId":"8c88f2b5-3398-4acb-a526-0b0a3778ab57","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640401","nanos":458725900},"testStepId":"f6853306-71a4-4673-b318-aeba33ad07ba","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"2","nanos":948962700}},"timestamp":{"seconds":"1615640404","nanos":407688600},"testStepId":"f6853306-71a4-4673-b318-aeba33ad07ba","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640404","nanos":408688200},"testStepId":"2d576a40-1bb2-497d-8529-ef77da165ed2","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"2","nanos":318669100}},"timestamp":{"seconds":"1615640406","nanos":727357300},"testStepId":"2d576a40-1bb2-497d-8529-ef77da165ed2","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":730457300},"testStepId":"697278a3-7c97-438e-b9b6-04e631aef701","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":205291700}},"timestamp":{"seconds":"1615640406","nanos":935749000},"testStepId":"697278a3-7c97-438e-b9b6-04e631aef701","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":935749000},"testStepId":"7ff5a850-b54e-4012-af7a-ea2b437ad6f4","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{}},"timestamp":{"seconds":"1615640406","nanos":935749000},"testStepId":"7ff5a850-b54e-4012-af7a-ea2b437ad6f4","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":936748000},"testStepId":"8da0d1cc-47ee-4db6-8c20-f5adbcab1433","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":999500}},"timestamp":{"seconds":"1615640406","nanos":937747500},"testStepId":"8da0d1cc-47ee-4db6-8c20-f5adbcab1433","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":939747200},"testStepId":"ff826154-9d1c-48fa-b617-cc978becd216","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":3002100}},"timestamp":{"seconds":"1615640406","nanos":942749300},"testStepId":"ff826154-9d1c-48fa-b617-cc978becd216","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":944745200},"testStepId":"a84da31e-1468-4ae5-ad84-10a2cf66f642","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":2000700}},"timestamp":{"seconds":"1615640406","nanos":946745900},"testStepId":"a84da31e-1468-4ae5-ad84-10a2cf66f642","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":947752200},"testStepId":"8226ff25-b1d3-4f9d-a885-4444ca46c9d2","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"FAILED","message":"io.cucumber.core.exception.CucumberException: Step [I can filter the results by {string}] is defined with 0 parameters at \u0027frontendTest.stepdef.SearchPageStepDef.iCanFilterTheResultsByBuyItNow()\u0027.\nHowever, the gherkin step has 1 arguments:\n * \u0027Buy it now\u0027\nStep text: I can filter the results by \u0027Buy it now\u0027\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.arityMismatch(PickleStepDefinitionMatch.java:83)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:42)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:200)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:235)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\r\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)\r\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\r\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)\r\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)\r\n","duration":{"nanos":2990800}},"timestamp":{"seconds":"1615640406","nanos":950743000},"testStepId":"8226ff25-b1d3-4f9d-a885-4444ca46c9d2","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":952739600},"testStepId":"4c8c2ed8-f4ef-4f1c-8fa8-be5d4ae0b778","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1615640406","nanos":952739600},"testStepId":"4c8c2ed8-f4ef-4f1c-8fa8-be5d4ae0b778","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepStarted":{"timestamp":{"seconds":"1615640406","nanos":954737900},"testStepId":"3e592857-7a1e-460f-a9ec-3d4e42b0f08f","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{}},"timestamp":{"seconds":"1615640406","nanos":954737900},"testStepId":"3e592857-7a1e-460f-a9ec-3d4e42b0f08f","testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testCaseFinished":{"timestamp":{"seconds":"1615640406","nanos":954737900},"testCaseStartedId":"c0c0208c-ad35-4fd1-8f79-943a1f4cd6cf"}},{"testCase":{"id":"1438a6a7-1b35-4581-9b08-9dbc3d3a5dea","pickleId":"177ec46c-c1c3-4221-8f30-687bca911e4f","testSteps":[{"id":"09417e8c-f401-4d46-b58a-20f9e912bbe4","hookId":"7e9ec154-4e6e-4a5f-a5a2-904b5818c0bf"},{"id":"5120e3dd-221a-498e-8d25-0428e476ca34","pickleStepId":"c3d032fc-46de-4ef9-ae0b-153e989e25b0","stepDefinitionIds":["c6ead273-162b-4927-9fce-6bef916e3af1"],"stepMatchArgumentsLists":[{}]},{"id":"c1fd257e-1edc-40d4-94a6-39fa196cd4ab","pickleStepId":"df95e760-b24f-4984-b766-cc83986f6eea","stepDefinitionIds":["a810c97b-a8bb-4455-9489-1ef467ca6977"],"stepMatchArgumentsLists":[{}]},{"id":"94fae97f-608e-4643-bddf-77afb38199f1","pickleStepId":"e665de13-9c44-471b-882c-d460b736b284","stepDefinitionIds":["680e3a8f-1ffd-4128-8bda-8cc4ae58d925"],"stepMatchArgumentsLists":[{}]},{"id":"277a10ae-6f5b-4b31-ace4-cefff94a2872","pickleStepId":"43fc7d6c-641c-46d5-b096-04926de51561","stepDefinitionIds":["0e3f495e-c5b8-4824-91c2-5ab9a5714960"],"stepMatchArgumentsLists":[{}]},{"id":"22709501-4a99-4cea-bd14-ce50fb13a2f8","pickleStepId":"042a1122-47dd-42f1-83af-2b0af7bbf60e","stepDefinitionIds":["bf1e63c2-a44b-4147-9b96-2534a260241e"],"stepMatchArgumentsLists":[{}]},{"id":"729224a8-6efc-4889-bfcb-1120eec340c1","hookId":"76324623-ac76-4b2d-97c5-187b79ec111e"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1615640407","nanos":34692000},"testCaseId":"1438a6a7-1b35-4581-9b08-9dbc3d3a5dea","id":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepStarted":{"timestamp":{"seconds":"1615640407","nanos":34692000},"testStepId":"09417e8c-f401-4d46-b58a-20f9e912bbe4","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":476275000}},"timestamp":{"seconds":"1615640408","nanos":510967000},"testStepId":"09417e8c-f401-4d46-b58a-20f9e912bbe4","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepStarted":{"timestamp":{"seconds":"1615640408","nanos":510967000},"testStepId":"5120e3dd-221a-498e-8d25-0428e476ca34","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepFinished":{"testStepResult":{"status":"FAILED","message":"io.cucumber.core.exception.CucumberException: Failed to instantiate class frontendTest.stepdef.SearchPageStepDef\r\n\tat io.cucumber.core.runtime.ObjectFactoryServiceLoader$DefaultJavaObjectFactory.cacheNewInstance(ObjectFactoryServiceLoader.java:149)\r\n\tat io.cucumber.core.runtime.ObjectFactoryServiceLoader$DefaultJavaObjectFactory.getInstance(ObjectFactoryServiceLoader.java:133)\r\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\r\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\r\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:200)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:235)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\r\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)\r\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\r\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)\r\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)\r\nCaused by: java.lang.reflect.InvocationTargetException\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)\r\n\tat io.cucumber.core.runtime.ObjectFactoryServiceLoader$DefaultJavaObjectFactory.cacheNewInstance(ObjectFactoryServiceLoader.java:141)\r\n\t... 34 more\r\nCaused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome\u003d89.0.4389.82)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DESKTOP-GNE7FVB\u0027, ip: \u0027192.168.0.14\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002711.0.8\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\\Users\\Nitu\\AppData\\Local...}, goog:chromeOptions: {debuggerAddress: localhost:60069}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: be173000fa914af962ff9f125f13badd\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:837)\r\n\tat frontendTest.util.DriverClass.getDriver(DriverClass.java:17)\r\n\tat frontendTest.pages.BasePage.\u003cinit\u003e(BasePage.java:19)\r\n\tat frontendTest.pages.SearchPage.\u003cinit\u003e(SearchPage.java:14)\r\n\tat frontendTest.stepdef.SearchPageStepDef.\u003cinit\u003e(SearchPageStepDef.java:9)\r\n\t... 39 more\r\n","duration":{"seconds":"2","nanos":163612300}},"timestamp":{"seconds":"1615640410","nanos":674579300},"testStepId":"5120e3dd-221a-498e-8d25-0428e476ca34","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepStarted":{"timestamp":{"seconds":"1615640410","nanos":689570600},"testStepId":"c1fd257e-1edc-40d4-94a6-39fa196cd4ab","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{"nanos":12991700}},"timestamp":{"seconds":"1615640410","nanos":702562300},"testStepId":"c1fd257e-1edc-40d4-94a6-39fa196cd4ab","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepStarted":{"timestamp":{"seconds":"1615640410","nanos":707561000},"testStepId":"94fae97f-608e-4643-bddf-77afb38199f1","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1615640410","nanos":707561000},"testStepId":"94fae97f-608e-4643-bddf-77afb38199f1","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepStarted":{"timestamp":{"seconds":"1615640410","nanos":707561000},"testStepId":"277a10ae-6f5b-4b31-ace4-cefff94a2872","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{"nanos":999300}},"timestamp":{"seconds":"1615640410","nanos":708560300},"testStepId":"277a10ae-6f5b-4b31-ace4-cefff94a2872","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepStarted":{"timestamp":{"seconds":"1615640410","nanos":708560300},"testStepId":"22709501-4a99-4cea-bd14-ce50fb13a2f8","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1615640410","nanos":708560300},"testStepId":"22709501-4a99-4cea-bd14-ce50fb13a2f8","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepStarted":{"timestamp":{"seconds":"1615640410","nanos":708560300},"testStepId":"729224a8-6efc-4889-bfcb-1120eec340c1","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":998500}},"timestamp":{"seconds":"1615640410","nanos":709558800},"testStepId":"729224a8-6efc-4889-bfcb-1120eec340c1","testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testCaseFinished":{"timestamp":{"seconds":"1615640410","nanos":709558800},"testCaseStartedId":"ebaed426-e2f8-4c16-9c67-1789a53fc406"}},{"testCase":{"id":"0a07a0bc-43b5-4bb9-931e-571c0eabdb92","pickleId":"aea7731e-1116-4963-8e67-f438177d558a","testSteps":[{"id":"00923c2d-af68-48be-bc03-57f44217ac60","hookId":"7e9ec154-4e6e-4a5f-a5a2-904b5818c0bf"},{"id":"76395fb7-5ccf-4565-8821-8ff3a1e84c8b","pickleStepId":"5bbce673-8148-4487-b640-47e4ae49624d","stepDefinitionIds":["1727735c-660e-49f2-a2c3-e05dd711622d"],"stepMatchArgumentsLists":[{}]},{"id":"a545d1f0-e1c2-41c3-8688-2a758298cb47","pickleStepId":"c6927e7f-5bc5-43ab-82e7-7567b092ca4b","stepDefinitionIds":["6c3fa4fe-5e82-46f7-99dd-45e26385e89a"],"stepMatchArgumentsLists":[{}]},{"id":"05fe9a4c-03f7-457c-852e-61e4f0ad017f","pickleStepId":"3a90b3f8-587d-48a9-8c35-910dbaf61468","stepDefinitionIds":["9d062dbe-a7a0-4924-8af9-ad346e971110"],"stepMatchArgumentsLists":[{}]},{"id":"ffb692af-44ae-4fb7-b4b7-9e14db15f2dd","pickleStepId":"1f42b2df-ab96-4695-a891-6fc6ecde3d5d","stepDefinitionIds":["432ebadc-c17d-4790-9446-b177a7480874"],"stepMatchArgumentsLists":[{}]},{"id":"a6e8ffaf-d83f-459c-8d2a-32281adb19c0","pickleStepId":"46490aa4-4bb9-4c1b-8e0f-7b51ff140310","stepDefinitionIds":["109a0acb-6ff8-4941-9f45-f2df148cbff4"],"stepMatchArgumentsLists":[{}]},{"id":"438d2f71-6798-4524-b024-045bf65e92df","pickleStepId":"eb9c229a-4219-4961-be7a-090866782ee4","stepDefinitionIds":["a5f36e11-5eba-4995-b5e7-8cffe41ccbc1"],"stepMatchArgumentsLists":[{}]},{"id":"36bcff31-5727-43cd-abff-9bf05cd8b2bf","hookId":"76324623-ac76-4b2d-97c5-187b79ec111e"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1615640410","nanos":736963300},"testCaseId":"0a0

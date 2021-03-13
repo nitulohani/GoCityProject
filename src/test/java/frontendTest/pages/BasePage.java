@@ -1,10 +1,12 @@
 package frontendTest.pages;
 
 import frontendTest.util.DriverClass;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -41,5 +43,29 @@ public class BasePage {
 
         element.sendKeys(message);
     }
+
+    public void assertElement(WebElement element){
+        Boolean booleanCondition=element.isDisplayed();
+        Assert.assertTrue(booleanCondition);
+
+    }
+    //select the dropdown using "select by visible text"
+    public static void dropDownSelectByText(WebElement webElement, String VisibleText){
+        Select selObj=new Select(webElement);
+        selObj.selectByVisibleText(VisibleText);
+    }
+
+    //select the dropdown using "select by index"
+    public static void dropDownSelectByIndex(WebElement webElement, int IndexValue){
+        Select selObj=new Select(webElement);
+        selObj.selectByIndex(IndexValue);
+    }
+
+    //select the dropdown using "select by value"
+    public static void dropDownSelectByValue(WebElement webElement, String Value){
+        Select selObj=new Select(webElement);
+        selObj.selectByValue(Value);
+    }
+
 
 }
