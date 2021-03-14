@@ -1,4 +1,4 @@
-package frontendTest.stepdef;
+package stepdef;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -41,6 +41,7 @@ public class SearchPageStepDef {
 
     @Then("I can sort the results by Lowest Price" )
     public void iCanSortTheResultsByLowestPrice() {
+
         searchPage.sortPriceLowest();
     }
 
@@ -73,11 +74,13 @@ public class SearchPageStepDef {
 
     @And("the results show more than one page" )
     public void theResultsShowMoreThanOnePage() {
+
         searchPage.verifyPagination();
     }
 
 
     @Then("the user can navigate through the pages to continue looking at the items" )
     public void theUserCanNavigateThroughThePagesToContinueLookingAtTheItems() {
+        searchPage.verifyNavigation();
     }
 }

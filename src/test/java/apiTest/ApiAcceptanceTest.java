@@ -43,13 +43,33 @@ public class ApiAcceptanceTest {
         assertEquals(expectedResponse, response.getBody(), true);
     }
     @Test
-    void shouldSuccessfullyIndividualLocation() throws JSONException {
+    void shouldSuccessfullyReturnLON() throws JSONException {
         ResponseEntity<String> response = endpointIsHit("http://localhost:8282/location/get/LON");
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         String expectedResponse= readFile("api-expected-response/expected-lon-locations-response.json");
         assertEquals(expectedResponse,response.getBody(),true);
     }
-
+    @Test
+    void shouldSuccessfullyReturnLCS() throws JSONException {
+        ResponseEntity<String> response = endpointIsHit("http://localhost:8282/location/get/LCS");
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        String expectedResponse= readFile("api-expected-response/expected-lcs-locations-response.json");
+        assertEquals(expectedResponse,response.getBody(),true);
+    }
+    @Test
+    void shouldSuccessfullyReturnCAM() throws JSONException {
+        ResponseEntity<String> response = endpointIsHit("http://localhost:8282/location/get/CAM");
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        String expectedResponse= readFile("api-expected-response/expected-cam-locations-response.json");
+        assertEquals(expectedResponse,response.getBody(),true);
+    }
+    @Test
+    void shouldSuccessfullyReturnMAN() throws JSONException {
+        ResponseEntity<String> response = endpointIsHit("http://localhost:8282/location/get/MAN");
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        String expectedResponse= readFile("api-expected-response/expected-lcs-locations-response.json");
+        assertEquals(expectedResponse,response.getBody(),true);
+    }
     @Test
     void shouldSuccessfullyReturnDetailsForSpecificLocation() throws JSONException {
         ResponseEntity<String> response = endpointIsHit("http://localhost:8282/location/get/India");
@@ -91,5 +111,17 @@ public class ApiAcceptanceTest {
         ResponseEntity<String> response = restTemplate.exchange("http://localhost:8282/location/post", HttpMethod.POST, request, String.class);
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         MatcherAssert.assertThat(response.getBody(), containsString("PAC created successfully"));
+    }
+    //returns updated location PAC
+    @Test
+    void shouldReturnNewUpdatedLocation() throws JSONException {
+        ResponseEntity<String> response = endpointIsHit("http://localhost:8282/location/get/all");
+
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        //MatcherAssert.assertThat(response.getBody(), containsString("PAC Returned successfully"));
+
+        String expectedResponse = readFile("api-expected-response/expected-all-updated-locations-response.json");
+        assertEquals(expectedResponse, response.getBody(), true);
+
     }
 }
